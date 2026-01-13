@@ -1,23 +1,44 @@
-# Huvudfil för ekonomiprogrammet
-''''=== Import av moduler ==='''
+"""
+Ekonomiprogram - Huvudfil
+Ett program för ekonomiska beräkningar baserat på svenska skattesatser.
+
+Författare: [Ditt namn]
+Datum: 2026-01-13
+"""
+
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-import csv # Behövs för att läsa in skattetabell
+import csv
 import ekonomi_funktioner as ef
-"""=== Huvudprogram ==="""
+
+
 def main():
-# Visar välkomstext när programmet startar.
-ef.welcome()
-# Låt användaren välja kommun från skattetabell
-# valda_rader har all data för kommun
-# Skattesats är bara procentsatsen
-valda_rader, skattesats = ef.val_kommun(filnamn='skattetabell.csv')
-# Kollar om skattesatsen faktist hittades
-# Om skattesatsen saknas (None) så används ett standardvärde på 30%
-if skattesats is None:
-print("Skattesatsen kunde inte hämtas. Använder standardvärde på 30 %")
-skattesats = 30.0
-# Starta huvudmenysystem där användaren kan välja olika funktioner
-ef.meny(skattesats, valda_rader)
-main() # Startar 
+    """
+    Huvudfunktion för ekonomiprogrammet.
+    
+    Startar programmet genom att:
+    1. Visa välkomstmeddelande
+    2. Låta användaren välja kommun från skattetabellen
+    3. Starta huvudmenyn med valda inställningar
+    """
+    # Visar välkomstext när programmet startar
+    ef.welcome()
+    
+    # Låt användaren välja kommun från skattetabell
+    # valda_rader innehåller all data för den valda kommunen
+    # skattesats är kommunens procentsats
+    valda_rader, skattesats = ef.val_kommun(filnamn='skattetabell.csv')
+    
+    # Kontrollera om skattesatsen hittades
+    # Om skattesatsen saknas (None) används ett standardvärde på 30%
+    if skattesats is None:
+        print("⚠️  Skattesatsen kunde inte hämtas. Använder standardvärde på 30%")
+        skattesats = 30.0
+    
+    # Starta huvudmenysystemet där användaren kan välja olika funktioner
+    ef.meny(skattesats, valda_rader)
+
+
+if __name__ == "__main__":
+    main()
