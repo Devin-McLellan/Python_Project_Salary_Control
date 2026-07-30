@@ -10,7 +10,7 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
-import ekonomi_funktioner as ef
+import mitt_program_funktioner as ef
 
 
 def main():

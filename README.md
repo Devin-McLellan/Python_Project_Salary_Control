@@ -1,40 +1,34 @@
-# Python_Project_Salary_Control
-Program that scans all municipalities in Sweden and compiles local tax tables for easy comparison and analysis.
-
 # Swedish Tax Table Lookup Program 🇸🇪
 
-This project is a Python-based program that searches through **all municipalities in Sweden** and returns the corresponding **tax tables** based on provided data.
+A Python program that looks up local tax rates for Swedish municipalities and lets you run income/vacation-pay calculations against them, with simple charting of results.
 
-The program uses an external CSV file containing up-to-date tax information and is structured in a modular way for clarity, maintainability, and reuse.
+The program reads from a CSV file of municipal tax data and separates data handling, business logic, and the menu-driven CLI into distinct modules for clarity.
 
 ---
 
 ## Project Structure
 
-- **src/**
-  - `main.py` – Program entry point
-  - `functions.py` – Core logic and helper functions
+- `mitt_program_main.py` – Program entry point
+- `mitt_program_funktioner.py` – Core logic and helper functions
+- `skattetabell.csv` – Tax table data for Swedish municipalities
+- `README.md` – Project documentation
 
-- **data/**
-  - `skattetabell_new.csv` – Tax table data for all Swedish municipalities
-
-- `README.md` – Project documentation  
-- `requirements.txt` – (Optional) External dependencies
 ---
 
 ## How it Works
 
-- Loads tax data from `skattetabell_new.csv`
-- Searches through all Swedish municipalities
-- Returns the correct tax table based on user input
-- Separates logic and execution for cleaner code structure
+- Loads tax data from `skattetabell.csv`
+- Lets you look up a municipality and its tax rate
+- Runs calculations (e.g. income after tax, vacation days) based on the selected rate
+- Plots results with matplotlib
 
 ---
 
 ## Technologies Used
 
 - **Python 3**
-- **CSV data handling**
+- **matplotlib** / **numpy**
+- CSV data handling
 - Modular program design
 
 ---
@@ -42,20 +36,23 @@ The program uses an external CSV file containing up-to-date tax information and 
 ## How to Run
 
 1. Make sure you have Python 3 installed
-2. Place all files in the same directory
+2. Install dependencies:
+
+```bash
+pip install matplotlib numpy
+```
+
 3. Run the program:
 
 ```bash
 python mitt_program_main.py
+```
 
- Purpose
+---
+
+## Purpose
 
 This project demonstrates:
-	•	Data processing with CSV files
-	•	Clean program structure in Python
-
-	Input validation
-	•	Command-line arguments
-	•	GUI or web interface
-	•	Automatic updates of tax data
-	•	Practical problem-solving using real-world public data
+- Data processing with CSV files
+- Clean, modular program structure in Python
+- Practical problem-solving using real-world public data (Swedish municipal tax rates)
